@@ -53,3 +53,62 @@ journalctl -u givenergy-emoncms -f
 ```
 
 ![](emoncms-inputs.png)
+
+# Modbus registers 
+
+This script in this repo only reads data, but control should be possible. 
+
+*Format for time is decimal. Eg 23:59 is 2359 0500 is 500*
+
+### Serial number
+
+Read register 13-17 Add them together as a string. You should get the serial number WORKING, see example script. 
+
+### Discharge
+
+Discharge Enable - 59 
+Start 1 - 56 
+End 1 - 57
+
+### Charge
+
+AC Charge Schedule Enable/Disable: 96 
+Start time: 94 e.g 9am is 900
+End Time: 95 e.g 2pm is 1400
+
+### SOC Target
+
+Charge target Soc 1 - 242
+
+
+### Peak Shaving 
+
+Peak shaving enable 20002
+Peak shaving value 20050
+Valley filling 20051
+
+### Read Data
+
+**Function code 4**
+
+42 Consumption Power (signed 0.1kW)
+
+59 Avg SoC
+52 battery total power
+50 battery voltage
+42 Building usage power (Signed 0.1kw)
+45-46 export energy
+44 import today
+35 export today
+32-33 import total
+30 grid power
+21 grid export today
+22 grid export today
+18 PV1 power
+20 pv2 power
+16 grid PF
+13 grid frequency
+10,11,12 grid current
+5,6,7 grid voltage
+
+Read registers 0 to 59
