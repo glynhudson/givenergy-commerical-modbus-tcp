@@ -1,0 +1,16 @@
+[Unit]
+Description=GivEnergy inverter to emoncms poller
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/givenergy
+EnvironmentFile=/etc/default/givenergy-emoncms
+ExecStart=/usr/bin/python3 /home/pi/givenergy/givenergy_emoncms.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
