@@ -1,5 +1,5 @@
 # givenergy-commerical-modbus-tcp
-Read data via Modbus TCP from GivEnergy Commercial AIO battery 
+Read data via Modbus TCP from GivEnergy Commercial AIO battery and post to [emoncms.org](https://emoncms.org). 
 
 Tested on GivEnergy Commercial All-In-One 69kWh using a RaspberryPi
 
